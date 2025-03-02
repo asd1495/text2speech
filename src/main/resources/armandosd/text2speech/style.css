@@ -1,0 +1,33 @@
+.body {
+    -fx-background: #121826;
+}
+
+.text-to-speech-label {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+.text-area {
+    -fx-border-radius: 10 10 10 10;
+    -fx-font-size: 16px;
+}
+
+.settings-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.settings-combo-box {
+    -fx-font-size: 14px;
+}
+
+.speak-btn {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+}
+
+.speak-btn:pressed {
+    -fx-opacity: 0.75;
+}
