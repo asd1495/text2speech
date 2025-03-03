@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9478c7e2-c611-451b-b65f-266a5d921cf7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armandosd/text2speech/text2speechController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armandosd/text2speech/text2speechController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/armandosd/text2speech/text2speechGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/armandosd/text2speech/text2speechGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
