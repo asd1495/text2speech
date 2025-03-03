@@ -1,6 +1,8 @@
 package armandosd.text2speech;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class text2speechGUI extends Application {
     private static final int APP_WIDTH = 375;
@@ -26,9 +29,9 @@ public class text2speechGUI extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Scene scene = createScene();
-        scene.getStylesheets().add(getClass().getResource(
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(
                 "style.css"
-        ).toExternalForm());
+        )).toExternalForm());
         stage.setTitle("text2speech!");
         stage.setScene(scene);
         stage.show();
@@ -59,6 +62,17 @@ public class text2speechGUI extends Application {
         settingsPane.getStyleClass().add("settings-label");
 
         Button speakButton = createImageButton();
+        speakButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String msg = textArea.getText();
+                String voice = voices.getValue();
+                String rate = rates.getValue();
+                String volume = volumes.getValue();
+
+                text2speechController.speak(msg, voice, rate, volume);
+            }
+        });
         StackPane speakButtonPane = new StackPane();
         speakButtonPane.setPadding(new Insets(40,20,0,20));
         speakButtonPane.getChildren().add(speakButton);
@@ -76,7 +90,7 @@ public class text2speechGUI extends Application {
 
         ImageView imageView = new ImageView(
                 new Image(
-                        getClass().getResourceAsStream("speak.png")
+                        Objects.requireNonNull(getClass().getResourceAsStream("speak.png"))
                 )
         );
         imageView.setFitHeight(50);
@@ -105,14 +119,26 @@ public class text2speechGUI extends Application {
         GridPane.setHalignment(volumeLabel, HPos.CENTER);
 
         voices = new ComboBox<>();
+        voices.getItems().addAll(
+                text2speechController.getVoices()
+        );
+        voices.setValue(voices.getItems().get(0));
         gridPane.add(voices, 0, 1);
         voices.getStyleClass().add("settings-combo-box");
 
         rates = new ComboBox<>();
+        rates.getItems().addAll(
+                text2speechController.getSpeedRates()
+        );
+        rates.setValue(rates.getItems().get(2));
         gridPane.add(rates, 1,1);
         rates.getStyleClass().add("settings-combo-box");
 
         volumes = new ComboBox<>();
+        volumes.getItems().addAll(
+                text2speechController.getVolumeLevels()
+        );
+        volumes.setValue(volumes.getItems().get(3));
         gridPane.add(volumes, 2,1);
         volumes.getStyleClass().add("settings-combo-box");
 
